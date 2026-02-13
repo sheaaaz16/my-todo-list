@@ -21,9 +21,19 @@ function newToDoItem(itemText, completed) {
 }
 
 function addToDoItem() {
-    var itemText = toDoEntryBox.value;
+    var itemText = toDoEntryBox.value.trim();
+
+    if (itemText === "") {
+        return; 
+    }
+
     newToDoItem(itemText, false);
+
+    toDoEntryBox.value = ""; //mengosongkan input box setelah menambah item
+
+    toDoEntryBox.focus();
 }
+
 
 function toggleToDoItemState() {
     if (this.classList.contains("completed")) {
